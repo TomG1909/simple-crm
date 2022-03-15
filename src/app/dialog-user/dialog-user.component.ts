@@ -19,7 +19,10 @@ export class DialogUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onNoClick() { }
+  onNoClick() {
+    this.dialogRef.close();
+
+  }
 
   saveUser() {
     this.user.birthDate = this.birthDate.getTime()
