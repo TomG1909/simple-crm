@@ -23,5 +23,11 @@ body {
 }
 
 mat-drawer-container {
-    background-color: #2b3c49ab !important;
+    background-image: url('assets/img/background-black.jpg') !important;
+    background-size: cover;
+    background-position: center;
+}
+
+mat-drawer-inner-container {
+    overflow: hidden !important;
 }

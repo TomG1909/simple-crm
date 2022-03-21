@@ -5,10 +5,10 @@
         </div>
         <ul class="menu-items">
 
-            <li [routerLink]="'/'" routerLinkActive="router-link-active">
+            <li [routerLink]="'/'" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact: true}">
                 <mat-icon>dashboard</mat-icon>Dashboard</li>
 
-            <li [routerLink]="'/user'" routerLinkActive="router-link-active">
+            <li [routerLink]="'/user'" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact: true}">
                 <mat-icon>perm_identity</mat-icon>User</li>
 
         </ul>

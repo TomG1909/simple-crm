@@ -5,7 +5,7 @@
             <th>E-Mail</th>
             <th>City</th>
         </tr>
-        <tr *ngFor="let user of AllUsers" [routerLink]="['/user/' + user.coustomIdName]">
+        <tr *ngFor="let user of AllUsers" [routerLink]="['/user/' + user.costumIdName]">
             <td>{{user.firstName}} {{user.lastName}}</td>
             <td>{{user.email}}</td>
             <td>{{user.city}}</td>
@@ -15,6 +15,6 @@
 </mat-card>
 
 
-<button (click)="openDialog()" class="add-user-btn" mat-fab color="primary" matTooltip="add new user">
+<button id="btn" (click)="openDialog()" class="add-user-btn" mat-fab color="primary" matTooltip="add new user">
     <mat-icon>add</mat-icon>
   </button>
