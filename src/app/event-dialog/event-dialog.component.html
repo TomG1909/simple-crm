@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>add new Event</h1>
+<div mat-dialog-content>
+    <div>
+        <mat-form-field class="mr-16" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input [(ngModel)]="calendar.title" matInput placeholder="Titel">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field class="mr-16 full-width" appearance="outline">
+            <mat-label>Event Date</mat-label>
+            <input [(ngModel)]="calendar.date" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+        <button mat-button (click)="closeDialog()">close</button>
+        <button mat-button (click)="calendar.addEvent()" cdkFocusInitial>Save</button>
+    </div>
+    <div>

@@ -19,7 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
@@ -27,8 +27,18 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditAddressComponent } from './edit-address/edit-address.component';
+import { MatDialog } from '@angular/material/dialog';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import { EventDialogComponent } from './event-dialog/event-dialog.component';
+import { NgChartsModule } from 'ng2-charts';
+import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
 
-
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin,
+]);
 
 
 
@@ -40,7 +50,10 @@ import { EditAddressComponent } from './edit-address/edit-address.component';
     DialogUserComponent,
     UserDetailComponent,
     EditUserComponent,
-    EditAddressComponent
+    EditAddressComponent,
+    EventDialogComponent,
+    WeatherWidgetComponent,
+
 
   ],
   imports: [
@@ -62,11 +75,13 @@ import { EditAddressComponent } from './edit-address/edit-address.component';
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    FullCalendarModule,
+    NgChartsModule,
 
 
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
