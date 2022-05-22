@@ -27,7 +27,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditAddressComponent } from './edit-address/edit-address.component';
-import { MatDialog } from '@angular/material/dialog';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -78,6 +78,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatMenuModule,
     FullCalendarModule,
     NgChartsModule,
+    HttpClientModule
 
 
   ],

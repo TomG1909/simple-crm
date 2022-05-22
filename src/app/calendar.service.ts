@@ -62,7 +62,7 @@ export class CalendarService {
     this.firestore.collection('events').doc(id).set({
       title: this.title,
       date: this.date
-    })
+    }).then((values) => this.events.push(values))
 
 
 

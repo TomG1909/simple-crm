@@ -2,7 +2,6 @@
     display: block;
     border-radius: 10px;
     width: 200px;
-    height: 220px;
     background: rgb(0, 0, 0);
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(8, 7, 42, 1) 75%, rgb(8, 10, 63) 100%);
     color: white;
@@ -14,11 +13,11 @@
     display: block;
     border-radius: 10px;
     width: 200px;
-    height: 220px;
     background: black;
     background: linear-gradient(180deg, #1e88e5 0%, #4fc3f7 75%, #e1f5fe 100%);
     color: white;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding-bottom: 20px;
 }
 
 .weatherWidgetRow {
@@ -41,23 +40,4 @@
 
 .cloudDiv {
     margin-top: -40px;
-}
-
-.cloud {
-    color: rgb(236, 244, 247);
-    filter: drop-shadow( 1px 1px 5px rgb(104, 175, 197));
-    animation-name: cloudMovement;
-    animation-iteration-count: infinite;
-    animation-duration: 10s;
-    animation-timing-function: ease-in-out;
-    animation-direction: alternate;
-}
-
-@keyframes cloudMovement {
-    from {
-        margin-left: -55px;
-    }
-    to {
-        margin-left: 65px;
-    }
 }
