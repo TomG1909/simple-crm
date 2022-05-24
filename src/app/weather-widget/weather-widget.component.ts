@@ -26,8 +26,8 @@ export class WeatherWidgetComponent implements OnInit {
       .then(response => response.json())
       .then(data => { this.setWeatherData(data); })
 
-    let data = JSON.parse('{"coord":{"lon":11.5755,"lat":48.1374},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":296.65,"feels_like":296.1,"temp_min":295.51,"temp_max":297.92,"pressure":1012,"humidity":40},"visibility":10000,"wind":{"speed":1.79,"deg":330,"gust":3.58},"clouds":{"all":71},"dt":1653233037,"sys":{"type":2,"id":2002112,"country":"DE","sunrise":1653190003,"sunset":1653245657},"timezone":7200,"id":2867714,"name":"Munich","cod":200}');
-    console.log('loaded WeatherData', data);
+    /*let data = JSON.parse('{"coord":{"lon":11.5755,"lat":48.1374},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":296.65,"feels_like":296.1,"temp_min":295.51,"temp_max":297.92,"pressure":1012,"humidity":40},"visibility":10000,"wind":{"speed":1.79,"deg":330,"gust":3.58},"clouds":{"all":71},"dt":1653233037,"sys":{"type":2,"id":2002112,"country":"DE","sunrise":1653190003,"sunset":1653245657},"timezone":7200,"id":2867714,"name":"Munich","cod":200}');
+    console.log('loaded WeatherData', data);*/
 
 
   }
@@ -50,8 +50,4 @@ export class WeatherWidgetComponent implements OnInit {
   }
 }
 
-
-function data(arg0: string, data: any) {
-  throw new Error('Function not implemented.');
-}
 
