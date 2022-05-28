@@ -18,24 +18,19 @@ import { EventDialogComponent } from './event-dialog/event-dialog.component';
 
 export class CalendarService {
   newEvent!: Observable<any>;
-  events: Array<any> = [
-    { title: 'event 1', date: '2022-05-16' },
-    { title: 'event 2', date: '2022-05-10' },
-
-  ];
+  events: any = [];
 
   title: string = '';
   date: string = '';
-  calendar: any;
 
 
 
   constructor(public dialog: MatDialog, public firestore: AngularFirestore) { }
-  @ViewChild('calendar')
-  calendarComponent!: FullCalendarComponent;
+
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     displayEventTime: false,
+    eventDisplay: 'block',
     dateClick: this.handleDateClick.bind(this), // bind is important!
     events: this.events,
 
@@ -57,25 +52,20 @@ export class CalendarService {
 
     })
     this.saveEventToFirebase();
-    this.loadEventFromFirebase();
 
 
-  }
-
-  render() {
-    let calendarApi = this.calendarComponent.getApi();
-
-    calendarApi.next();
 
   }
+
+
   saveEventToFirebase() {
     const id = this.firestore.createId();
     this.firestore.collection('events').doc(id).set({
       title: this.title,
       date: this.date
+
     })
-
-
+    this.loadEventFromFirebase();
   }
 
   openDialog() {
@@ -85,14 +75,14 @@ export class CalendarService {
 
 
   loadEventFromFirebase() {
-    this.newEvent = this.firestore.collection('events').valueChanges({ idField: 'id' });
+    this.newEvent = this.firestore.collection('events').valueChanges();
     this.newEvent.subscribe((newEvents) => {
-      this.events = newEvents;
+      this.events = newEvents
+      console.log('loaded events', newEvents)
 
 
     })
 
-    console.log(this.events)
 
 
   }
