@@ -8,6 +8,7 @@ import { CalendarOptions, EventInput, FullCalendarComponent } from '@fullcalenda
 
 
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -19,15 +20,29 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   constructor(public calendar: CalendarService) { }
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      const calendarAPI = this.calendarComponent.getApi();
 
-      calendarAPI.addEventSource(this.calendar.events)
+    this.calendar.loadEventFromFirebase()
+      .subscribe((newEvents: any) => {
+
+        //this.events = newEvents
+        console.log('loaded events', newEvents)
+
+        const calendarAPI = this.calendarComponent.getApi();
+
+        calendarAPI.addEventSource(newEvents)
+
+        calendarAPI.render()
 
 
-    });
+
+
+
+      })
+
   }
   ngOnInit(): void {
+
+
 
 
   }

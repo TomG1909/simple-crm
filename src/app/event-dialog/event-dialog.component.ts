@@ -1,3 +1,4 @@
+import { ResourceLoader } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Event } from 'src/models/event.class';
@@ -15,8 +16,10 @@ export class EventDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   closeDialog() {
     this.dialogRef.close();
+
 
   }
 

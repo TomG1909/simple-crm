@@ -12,7 +12,7 @@ import { UserComponent } from './user/user.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogUserComponent } from './dialog-user/dialog-user.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -78,11 +78,16 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatMenuModule,
     FullCalendarModule,
     NgChartsModule,
-    HttpClientModule
+    HttpClientModule,
+
 
 
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore,
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

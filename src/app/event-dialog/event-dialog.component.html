@@ -10,7 +10,7 @@
     <div>
         <mat-form-field class="mr-16 full-width" appearance="outline">
             <mat-label>Event Date</mat-label>
-            <input [(ngModel)]="calendar.date" matInput [matDatepicker]="picker">
+            <input [(ngModel)]="calendar.start" matInput [matDatepicker]="picker">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
