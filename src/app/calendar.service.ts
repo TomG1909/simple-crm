@@ -1,12 +1,8 @@
-import { Injectable, ViewChild } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { collection, Firestore } from '@angular/fire/firestore';
+import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { CalendarOptions, EventInput, FullCalendarComponent } from '@fullcalendar/angular';
-
-
+import { CalendarOptions, EventClickArg, EventInput, FullCalendarComponent } from '@fullcalendar/angular';
 import { Observable } from 'rxjs';
-
 import { EventDialogComponent } from './event-dialog/event-dialog.component';
 
 
@@ -17,16 +13,16 @@ import { EventDialogComponent } from './event-dialog/event-dialog.component';
 
 
 export class CalendarService {
+  calendarComponent!: FullCalendarComponent;
   newEvent!: Observable<any>;
   events: any = [
-    {
-      title: 'event1',
-      start: '2022-06-01'
-    }
+
   ];
 
   title: string = '';
   start: any = '';
+  eventsCollection: any;
+  eventDoc: AngularFirestoreDocument | undefined;
 
 
 
@@ -37,11 +33,22 @@ export class CalendarService {
     displayEventTime: false,
     eventDisplay: 'block',
     dateClick: this.handleDateClick.bind(this), // bind is important!
+    eventClick: this.handleEventClick.bind(this),
     events: this.events,
 
 
   };
 
+  handleEventClick(clickInfo: EventClickArg) {
+    if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
+      clickInfo.event.remove();
+    }
+
+    this.deleteEventFromFirestore(clickInfo.event.id)
+
+    console.log(clickInfo.event.id)
+
+  }
 
   handleDateClick(arg: any) {
 
@@ -49,24 +56,22 @@ export class CalendarService {
     console.log(arg.dateStr)
   }
 
-  addEvent() {
+
+
+
+  saveEventToFirebase() {
+    const id = this.firestore.createId();
+
     const newEvent = {
+      id: id,
       title: this.title,
       start: this.start.toISOString()
 
     }
-    //this.events.push(newEvent)
-    this.saveEventToFirebase(newEvent);
-
-    console.log('Array', this.events)
 
 
-  }
 
-
-  saveEventToFirebase(event: any) {
-    const id = this.firestore.createId();
-    this.firestore.collection('events').doc(id).set(event)
+    this.firestore.collection('events').doc(id).set(newEvent)
 
   }
 
@@ -77,10 +82,14 @@ export class CalendarService {
 
 
   loadEventFromFirebase() {
-    return this.firestore.collection('events').valueChanges();
+    return this.firestore.collection('events').valueChanges({ idField: 'id' });
+
+  }
 
 
 
+  deleteEventFromFirestore(id: any) {
+    this.firestore.collection('events').doc(id).delete();
   }
 
 }

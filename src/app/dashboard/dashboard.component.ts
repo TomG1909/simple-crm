@@ -17,32 +17,29 @@ import { CalendarOptions, EventInput, FullCalendarComponent } from '@fullcalenda
 export class DashboardComponent implements OnInit, AfterViewInit {
   @ViewChild('calendarComponent')
   calendarComponent!: FullCalendarComponent;
-
-  constructor(public calendar: CalendarService) { }
+  eventAdded = false;
+  constructor(public calendarService: CalendarService) { }
   ngAfterViewInit(): void {
 
-    this.calendar.loadEventFromFirebase()
-      .subscribe((newEvents: any) => {
 
-        //this.events = newEvents
+
+  }
+  ngOnInit(): void {
+
+
+    this.calendarService.loadEventFromFirebase()
+      .subscribe((newEvents: any) => {
+        // $('#calendarComponent').fullCalendar( 'removeEventSource', newEvents )
         console.log('loaded events', newEvents)
 
         const calendarAPI = this.calendarComponent.getApi();
 
         calendarAPI.addEventSource(newEvents)
 
-        calendarAPI.render()
-
-
-
-
+        //calendarAPI.render()
+        console.log(this.calendarService.events)
 
       })
-
-  }
-  ngOnInit(): void {
-
-
 
 
   }

@@ -11,7 +11,7 @@ import { CalendarService } from '../calendar.service';
 })
 export class EventDialogComponent implements OnInit {
   title: any
-  constructor(public calendar: CalendarService, public dialogRef: MatDialogRef<EventDialogComponent>) { }
+  constructor(public calendarService: CalendarService, public dialogRef: MatDialogRef<EventDialogComponent>) { }
 
   ngOnInit(): void {
   }
