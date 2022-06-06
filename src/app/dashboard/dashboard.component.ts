@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         calendarAPI.addEventSource(newEvents)
 
         //calendarAPI.render()
-        console.log(this.calendarService.events)
+
 
       })
 
