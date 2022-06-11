@@ -29,10 +29,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
     this.calendarService.loadEventFromFirebase()
       .subscribe((newEvents: any) => {
-        // $('#calendarComponent').fullCalendar( 'removeEventSource', newEvents )
+
         console.log('loaded events', newEvents)
 
         const calendarAPI = this.calendarComponent.getApi();
+
+        calendarAPI.removeAllEventSources();
 
         calendarAPI.addEventSource(newEvents)
 

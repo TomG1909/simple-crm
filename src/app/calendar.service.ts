@@ -37,6 +37,7 @@ export class CalendarService {
     events: this.events,
 
 
+
   };
 
   handleEventClick(clickInfo: EventClickArg) {
@@ -59,7 +60,7 @@ export class CalendarService {
 
 
 
-  saveEventToFirebase() {
+  saveEvent() {
     const id = this.firestore.createId();
 
     const newEvent = {
@@ -76,6 +77,8 @@ export class CalendarService {
   }
 
   openDialog() {
+    this.title = "";
+    this.start = "";
     this.dialog.open(EventDialogComponent)
   }
 

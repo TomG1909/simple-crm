@@ -29,4 +29,12 @@ export class UserComponent implements OnInit {
   openDialog() {
     this.dialog.open(DialogUserComponent)
   }
+  deleteFromFirestore(id: any) {
+    this.firestore.collection('users').doc(id).delete();
+    setTimeout(() => {
+      location.pathname = 'user/'
+    }, 100);
+
+  }
+
 }

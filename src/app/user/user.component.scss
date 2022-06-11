@@ -6,6 +6,7 @@
 }
 
 mat-card {
+    margin-top: 20px;
     padding-left: 0;
     padding-right: 0;
 }
@@ -13,33 +14,63 @@ mat-card {
 .user-table {
     width: 100%;
     border-collapse: collapse;
+
     tr {
         border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+
         &:last-child {
             border-bottom: 0;
         }
+
         &:first-child {
             cursor: none;
+
             &:hover {
                 background-color: unset;
             }
         }
+
         cursor: pointer;
+
         &:hover {
             background-color: rgba(0, 0, 0, 0.04);
         }
+
         td {
             height: 60px;
+
             &:first-child {
                 padding-left: 16px;
+
             }
         }
     }
+
     th {
         color: rgba(0, 0, 0, 0.4);
         text-align: start;
+
         &:first-child {
             padding-left: 16px;
         }
+    }
+
+
+}
+
+@media(max-width:600px) {
+    .user-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+
+
+    }
+
+    mat-card {
+        margin-top: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        overflow: scroll;
     }
 }

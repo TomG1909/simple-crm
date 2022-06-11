@@ -1,27 +1,16 @@
-.fc-theme-standard {
-    border: 1px solid #ddd;
-    border: 1px solid var(--fc-border-color, #ddd);
-    background-color: white;
-    border-radius: 10px;
-}
+   .main-container {
+       display: flex;
+       justify-content: space-between;
+       margin-top: 100px;
+       width: 60vw;
+   }
 
-.fc {
-    /* the calendar root */
-    min-width: 400px;
-    margin: 0 auto;
-    min-height: 500px;
-}
+   @media(max-width:900px) {
+       .main-container {
+           flex-direction: column;
+           width: 85vw;
+           margin-top: 30px;
+           align-items: center;
 
-.fc.fc-button-primary {
-    color: #fff;
-    color: var(--fc-button-text-color, #fff);
-    background-color: var(--fc-button-bg-color, #2C8CDA);
-    border-color: var(--fc-button-border-color, #2C8CDA);
-}
-
-.main-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-    width: 60vw;
-}
+       }
+   }

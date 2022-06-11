@@ -5,14 +5,26 @@
             <th>E-Mail</th>
             <th>City</th>
         </tr>
-        <tr *ngFor="let user of AllUsers" [routerLink]="['/user/' + user.costumIdName]">
+        <tr *ngFor="let user of AllUsers">
             <td>{{user.firstName}} {{user.lastName}}</td>
             <td>{{user.email}}</td>
             <td>{{user.city}}</td>
 
+            <button mat-icon-button [matMenuTriggerFor]="menuUser" class="delete-icon">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+
+              <mat-menu #menuUser="matMenu">
+                <button mat-menu-item [routerLink]="['/user/' + user.costumIdName]">Edit</button>
+                <button mat-menu-item (click)="deleteFromFirestore(user.costumIdName)"class="delete">Delete</button>
+            
+            </mat-menu>
+        
         </tr>
+       
     </table>
 </mat-card>
+
 
 
 <button id="btn" (click)="openDialog()" class="add-user-btn" mat-fab color="primary" matTooltip="add new user">

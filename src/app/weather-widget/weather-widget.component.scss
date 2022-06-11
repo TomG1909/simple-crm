@@ -29,15 +29,27 @@
 .sun {
     margin-top: 10px;
     color: yellow;
-    filter: drop-shadow( 1px 1px 10px yellow);
+    filter: drop-shadow(1px 1px 10px yellow);
 }
 
 .moon {
     margin-top: 10px;
     color: white;
-    filter: drop-shadow( 1px 1px 10px white);
+    filter: drop-shadow(1px 1px 10px white);
 }
 
 .cloudDiv {
     margin-top: -40px;
+}
+
+@media(max-width:900px) {
+
+    #divWeatherMain {
+        margin: 20px;
+    }
+
+    #divWeatherMainDay {
+        margin: 20px;
+    }
+
 }

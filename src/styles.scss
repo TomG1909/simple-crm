@@ -31,3 +31,59 @@ mat-drawer-container {
 mat-drawer-inner-container {
     overflow: hidden !important;
 }
+
+:root {
+    --fc-button-bg-color: #2C8CDA;
+
+}
+
+.fc-theme-standard {
+    border: 1px solid #ddd;
+    border: 1px solid var(--fc-border-color, #ddd);
+    background-color: white;
+    border-radius: 10px;
+}
+
+.fc {
+    /* the calendar root */
+    width: 500px;
+    padding: 9px;
+    min-height: 500px;
+}
+
+.fc .fc-col-header-cell-cushion {
+    /* needs to be same precedence */
+    padding-top: 5px;
+    /* an override! */
+    padding-bottom: 5px;
+    /* an override! */
+}
+
+mat-input-element {
+    caret-color: #2C8CDA !important;
+}
+
+.delete {
+    color: red !important;
+}
+
+@media(max-width:600px) {
+    .fc {
+        width: 100%;
+        padding: 9px;
+        min-height: 50vh;
+        margin-bottom: 20px;
+        font-size: 13px !important;
+    }
+
+    .fc-toolbar-title {
+        font-size: 15px !important;
+        margin: 0;
+    }
+
+
+
+    .fc-bottom {
+        padding: 0 !important;
+    }
+}

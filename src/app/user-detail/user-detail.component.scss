@@ -6,6 +6,7 @@
     //background-position: center;
     display: flex;
     align-items: flex-end;
+
     img {
         width: 80px;
         height: 80px;
@@ -34,7 +35,42 @@
     position: absolute;
     right: 0;
     top: 0;
+
     &:hover {
         color: #2C8CDA;
     }
+}
+
+@media(max-width:600px) {
+    .user-detail-header {
+        min-height: 300px;
+        background-image: linear-gradient(to right, #2C8CDA 40%, black);
+        //background-image: url('/assets/img/Profile_Bg.png');
+        // background-size: cover;
+        //background-position: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 100%
+        }
+    }
+
+    .user-details {
+        margin-left: 2px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        padding-bottom: 8px;
+        padding-left: 13px;
+    }
+
+
 }
